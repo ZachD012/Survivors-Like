@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvrl1lwxl23hf"]
+
+[ext_resource type="Script" uid="uid://ke56rgnjpl6y" path="res://scripts/wand.gd" id="1_ran2g"]
+[ext_resource type="Texture2D" uid="uid://dy7wsxlg7jwfm" path="res://Art Assests/wand/wand and fire-Sheet.png" id="2_bsfy4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej6i0"]
+radius = 48.0104
+
+[node name="Weapon" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ran2g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ej6i0")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Wand" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(11, -2)
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bsfy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="ShootingfPoint" type="Marker2D" parent="WeaponPivot/Wand"]
+position = Vector2(6, -6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
