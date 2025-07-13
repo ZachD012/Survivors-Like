@@ -1532,19 +1532,19 @@ tile_set = SubResource("TileSet_jyhfs")
 
 [node name="PlayerHuman" parent="." instance=ExtResource("1_sugp2")]
 z_index = 1
-position = Vector2(293, 204)
+position = Vector2(341, 199)
 
 [node name="Mob" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(194, 185)
+position = Vector2(264, 150)
 
 [node name="Mob2" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(247, 159)
+position = Vector2(349, 145)
 
 [node name="Mob3" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(310, 163)
+position = Vector2(264, 240)
 
 [node name="Mob4" parent="." instance=ExtResource("2_jyhfs")]
-position = Vector2(341, 199)
+position = Vector2(432, 150)
 
 [node name="Brazier3" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(484, 274)

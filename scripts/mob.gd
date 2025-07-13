@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+var health = 1
+
 const SPEED = 38.0
 	
 func _ready():
@@ -22,3 +24,8 @@ func _physics_process(delta):
 		animation_tree.set("parameters/Walk/blend_position", direction)
 	else:
 		state_machine.travel("Idle")
+func take_damage():
+	health -= 1
+	
+	if health == 0:
+		queue_free()
