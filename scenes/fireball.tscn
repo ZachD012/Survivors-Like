@@ -9,7 +9,7 @@ radius = 7.0
 [node name="Fireball" type="Area2D"]
 top_level = true
 collision_layer = 0
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_1gl40")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,4 +20,9 @@ texture = ExtResource("2_cb14k")
 region_enabled = true
 region_rect = Rect2(18, 4, 11, 10)
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.19209e-07, 2.38419e-07)
+scale = Vector2(0.7, 0.7)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://w1a4xvu7mi5k"]
+[gd_scene load_steps=13 format=3 uid="uid://w1a4xvu7mi5k"]
 
 [ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://scripts/player_human.gd" id="1_wqvx2"]
 [ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/wand/wizard-penguin.png" id="2_q8djv"]
@@ -51,6 +51,17 @@ animations = [{
 radius = 4.0
 height = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8djv"]
+radius = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8djv"]
+bg_color = Color(0.293239, 0.704524, 0.253196, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing_size = 0.2
+
 [node name="PlayerHuman" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_wqvx2")
@@ -70,4 +81,24 @@ shape = SubResource("CapsuleShape2D_ba54t")
 limit_smoothed = true
 
 [node name="Weapon" parent="." instance=ExtResource("3_q8djv")]
-position = Vector2(-4, -7)
+position = Vector2(0, -4)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_q8djv")
+debug_color = Color(0.92607, 0.250785, 0.273463, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -12.0
+offset_top = -21.0
+offset_right = 12.0
+offset_bottom = -17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_q8djv")
+value = 100.0
+show_percentage = false

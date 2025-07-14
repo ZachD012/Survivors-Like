@@ -9,9 +9,9 @@ func _physics_process(delta):
 func cast():
 	const FIREBALL = preload("res://scenes/fireball.tscn")
 	var new_fireball = FIREBALL.instantiate()
+	%ShootingPoint.add_child(new_fireball)
 	new_fireball.global_position = %ShootingPoint.global_position
 	new_fireball.global_rotation = %ShootingPoint.global_rotation
-	%ShootingPoint.add_child(new_fireball)
 
 func _on_timer_timeout() -> void:
 	cast()

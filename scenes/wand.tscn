@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvrl1lwxl23hf"]
+[gd_scene load_steps=3 format=3 uid="uid://bvrl1lwxl23hf"]
 
 [ext_resource type="Script" uid="uid://ke56rgnjpl6y" path="res://scripts/wand.gd" id="1_ran2g"]
-[ext_resource type="Texture2D" uid="uid://dy7wsxlg7jwfm" path="res://Art Assests/wand/wand and fire-Sheet.png" id="2_bsfy4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ej6i0"]
 radius = 63.0079
@@ -16,16 +15,9 @@ shape = SubResource("CircleShape2D_ej6i0")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
-[node name="Wand" type="Sprite2D" parent="WeaponPivot"]
-position = Vector2(13, 4.76837e-07)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_bsfy4")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-
-[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Wand"]
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot"]
 unique_name_in_owner = true
-position = Vector2(6, -6)
+scale = Vector2(0.5, 0.5)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
