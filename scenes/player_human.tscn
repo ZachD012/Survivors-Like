@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://w1a4xvu7mi5k"]
 
 [ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://scripts/player_human.gd" id="1_wqvx2"]
-[ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/wand/wizard-penguin.png" id="2_q8djv"]
+[ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/Weapons/wand/wizard-penguin.png" id="2_q8djv"]
 [ext_resource type="PackedScene" uid="uid://bvrl1lwxl23hf" path="res://scenes/wand.tscn" id="3_q8djv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63wj2"]

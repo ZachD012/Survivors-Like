@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://chps6oa2i5rr0"]
+
+[ext_resource type="Script" uid="uid://c204ei88hsmyw" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqxei"]
+radius = 5.0
+height = 10.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+region_rect = Rect2(163, 1, 10, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lqxei")

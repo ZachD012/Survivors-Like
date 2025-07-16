@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5ed3oofpmv88"]
 
 [ext_resource type="Script" uid="uid://bh3dt1pv6m5uu" path="res://scripts/fireball.gd" id="1_1gl40"]
-[ext_resource type="Texture2D" uid="uid://dy7wsxlg7jwfm" path="res://Art Assests/wand/wand and fire-Sheet.png" id="2_cb14k"]
+[ext_resource type="Texture2D" uid="uid://dy7wsxlg7jwfm" path="res://Art Assests/Weapons/wand/wand and fire-Sheet.png" id="2_cb14k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kba2"]
 radius = 7.0
@@ -15,7 +15,7 @@ script = ExtResource("1_1gl40")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7kba2")
 
-[node name="WandAndFire-sheet" type="Sprite2D" parent="."]
+[node name="fireball" type="Sprite2D" parent="."]
 texture = ExtResource("2_cb14k")
 region_enabled = true
 region_rect = Rect2(18, 4, 11, 10)

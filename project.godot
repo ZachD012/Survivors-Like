@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/scale=4.0
 
+[file_customization]
+
+folder_colors={
+"res://Resources/Enemies/": "red",
+"res://Resources/Weapons/": "blue"
+}
+
 [input]
 
 right={
@@ -46,6 +53,4 @@ up={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
