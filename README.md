@@ -17,4 +17,4 @@ Creating a vampire survivors-like game where you play as a penguin mage battling
   - `WASD` to move
 
 ## 🚧 Development Status
-Currently in **early development** — more levels and features planned!
+Currently in **early development** more levels and features planned!
