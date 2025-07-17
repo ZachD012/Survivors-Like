@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://chps6oa2i5rr0"]
+[gd_scene load_steps=4 format=3 uid="uid://chps6oa2i5rr0"]
 
 [ext_resource type="Script" uid="uid://c204ei88hsmyw" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://ds4ckoed47tlo" path="res://Art Assests/Enemies/Skull1.png" id="2_md0e3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqxei"]
 radius = 5.0
@@ -12,7 +13,8 @@ collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_md0e3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Enemy"]]
+texture = ExtResource("2_md0e3")
 region_rect = Rect2(163, 1, 10, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

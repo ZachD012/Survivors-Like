@@ -13,5 +13,5 @@ func cast():
 	new_fireball.global_position = %ShootingPoint.global_position
 	new_fireball.global_rotation = %ShootingPoint.global_rotation
 
-func _on_timer_timeout() -> void:
-	cast()
+#func _on_timer_timeout() -> void:
+	#cast()

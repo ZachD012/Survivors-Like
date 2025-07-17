@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://w1a4xvu7mi5k"]
+[gd_scene load_steps=15 format=3 uid="uid://w1a4xvu7mi5k"]
 
-[ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://scripts/player_human.gd" id="1_wqvx2"]
+[ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://scripts/player.gd" id="1_wqvx2"]
 [ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/Weapons/wand/wizard-penguin.png" id="2_q8djv"]
+[ext_resource type="PackedScene" uid="uid://c6cu6ujapeppi" path="res://scenes/slot.tscn" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bvrl1lwxl23hf" path="res://scenes/wand.tscn" id="3_q8djv"]
+[ext_resource type="Resource" uid="uid://cffauw855yprs" path="res://Resources/Weapons/Fire Wand.tres" id="3_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63wj2"]
 atlas = ExtResource("2_q8djv")
@@ -66,12 +68,23 @@ anti_aliasing_size = 0.2
 motion_mode = 1
 script = ExtResource("1_wqvx2")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Weapons" type="HBoxContainer" parent="UI"]
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="Slot" parent="UI/Weapons" instance=ExtResource("2_qlg0r")]
+layout_mode = 2
+weapon = ExtResource("3_tuyoq")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uorc5")
 autoplay = "default"
-frame_progress = 0.571826
+frame = 4
+frame_progress = 0.0895145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -83,12 +96,13 @@ limit_smoothed = true
 [node name="Weapon" parent="." instance=ExtResource("3_q8djv")]
 position = Vector2(0, -4)
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="SelfDamage" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="Collision" type="CollisionShape2D" parent="SelfDamage"]
+unique_name_in_owner = true
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_q8djv")
 debug_color = Color(0.92607, 0.250785, 0.273463, 0.42)
@@ -102,3 +116,9 @@ offset_bottom = -17.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_q8djv")
 value = 100.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

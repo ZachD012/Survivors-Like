@@ -1,10 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ed3oofpmv88"]
+[gd_scene load_steps=9 format=3 uid="uid://c5ed3oofpmv88"]
 
 [ext_resource type="Script" uid="uid://bh3dt1pv6m5uu" path="res://scripts/fireball.gd" id="1_1gl40"]
-[ext_resource type="Texture2D" uid="uid://dy7wsxlg7jwfm" path="res://Art Assests/Weapons/wand/wand and fire-Sheet.png" id="2_cb14k"]
+[ext_resource type="Texture2D" uid="uid://ck0cwxly034vr" path="res://Art Assests/Weapons/wand/fire.png" id="2_1gl40"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kba2"]
 radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_1gl40"]
+offsets = PackedFloat32Array(0, 0.227642, 0.604336, 1)
+colors = PackedColorArray(0.952941, 0.352941, 0.0352941, 1, 0.952941, 0.101961, 0.0823529, 1, 0.956863, 0.662745, 0.156863, 1, 0.964706, 0.352941, 0.294118, 0.588235)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cb14k"]
+gradient = SubResource("Gradient_1gl40")
+
+[sub_resource type="Curve" id="Curve_7kba2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_43lgj"]
+curve = SubResource("Curve_7kba2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vqoxj"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.84
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_43lgj")
+color_ramp = SubResource("GradientTexture1D_cb14k")
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_influence_max = 0.217
 
 [node name="Fireball" type="Area2D"]
 top_level = true
@@ -16,13 +46,16 @@ script = ExtResource("1_1gl40")
 shape = SubResource("CircleShape2D_7kba2")
 
 [node name="fireball" type="Sprite2D" parent="."]
-texture = ExtResource("2_cb14k")
-region_enabled = true
-region_rect = Rect2(18, 4, 11, 10)
+texture = ExtResource("2_1gl40")
+region_rect = Rect2(19, 8, 4, 1)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.19209e-07, 2.38419e-07)
 scale = Vector2(0.7, 0.7)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_vqoxj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

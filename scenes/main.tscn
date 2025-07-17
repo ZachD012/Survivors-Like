@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://b0bvjeiooq4xh"]
 
 [ext_resource type="PackedScene" uid="uid://drr2gnkucr40" path="res://scenes/spawner.tscn" id="1_85g3d"]
-[ext_resource type="PackedScene" uid="uid://w1a4xvu7mi5k" path="res://scenes/player_human.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://w1a4xvu7mi5k" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dyi1qvl0euqua" path="res://Art Assests/Background/free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/walls_floor.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://c7esgumk1of4b" path="res://Art Assests/Background/free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/decorative_cracks_floor.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dhncr30j434k3" path="res://Art Assests/Tiny 16 pack/basictiles.png" id="4_jyhfs"]
