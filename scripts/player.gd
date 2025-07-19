@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_depleted
+var area : float = 0
 var move_speed = 100
 var health = 100.0:
 	set(value):
@@ -8,14 +9,15 @@ var health = 100.0:
 		%HealthBar.value = value
 
 var nearest_enemy : CharacterBody2D
-var nearest_enemy_distance : float = INF
+var nearest_enemy_distance : float = 150 + area
 
 func _physics_process(_delta):
 	#Checking if there is a nearest enemy then stores its seperation as the distance. Otherwise set the value to default (infinite)
 	if nearest_enemy:
 		nearest_enemy_distance = nearest_enemy.seperation
 	else:
-		nearest_enemy_distance = INF
+		nearest_enemy_distance = 150 + area
+		nearest_enemy = null
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * move_speed

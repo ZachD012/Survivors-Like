@@ -6,7 +6,7 @@ extends Node2D
 #how far to spawn from player
 var distance : float = 200
 var can_spawn : bool = true
-var mob_cap : int = 600
+var mob_cap : int = 100
 
 @export var enemy_types : Array[Enemy]
 
@@ -54,11 +54,11 @@ func amount(number : int = 1):
 
 func _on_timer_timeout() -> void:
 	second += 1
-	amount(second % 10) #increment second with each timeout and spawn enemies
+	amount(second % 5) #increment second with each timeout and spawn enemies
 
 
 func _on_pattern_timeout() -> void:
-	for i in range(75):
+	for i in range(20):
 		spawn(get_random_position())
 
 

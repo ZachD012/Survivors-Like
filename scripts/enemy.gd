@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var player_reference : CharacterBody2D
-@onready var player = get_node("/root/Main/PlayerHuman")
-
+var damage_popup_node = preload("res://scenes/damage.tscn")
 var direction : Vector2
 var damage : float
 var knockback : Vector2
 var seperation : float
+var experience : float
 var health : float:
 	set(value):
 		health = value
@@ -44,11 +44,9 @@ func knockback_update(delta):
 		collider.get_collider().knockback = (collider.get_collider().global_position - 
 		global_position).normalized() * 50 #applies knockback to bodies colliding with enemy
 		
-func take_damage():
-	health -= 1
-	
-	if health == 0:
-		queue_free()
+func take_damage(amount):
+	damage_popup(amount)
+	health -= amount
 
 func check_seperation(_delta):
 	#if more than 500 away from player, free from memory if they are not elite
@@ -59,3 +57,9 @@ func check_seperation(_delta):
 	#if any enemy is nearer to the player, update
 	if seperation < player_reference.nearest_enemy_distance:
 		player_reference.nearest_enemy = self
+
+func damage_popup(amount):
+	var popup = damage_popup_node.instantiate()
+	popup.text = str(int(amount))
+	popup.position = position + Vector2(-50, -25)
+	get_tree().current_scene.add_child(popup)

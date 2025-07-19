@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://scripts/player.gd" id="1_wqvx2"]
 [ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/Weapons/wand/wizard-penguin.png" id="2_q8djv"]
 [ext_resource type="PackedScene" uid="uid://c6cu6ujapeppi" path="res://scenes/slot.tscn" id="2_qlg0r"]
-[ext_resource type="PackedScene" uid="uid://bvrl1lwxl23hf" path="res://scenes/wand.tscn" id="3_q8djv"]
 [ext_resource type="Resource" uid="uid://cffauw855yprs" path="res://Resources/Weapons/Fire Wand.tres" id="3_tuyoq"]
+[ext_resource type="Resource" uid="uid://dn7vcpn06nt34" path="res://Resources/Weapons/blast.tres" id="4_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63wj2"]
 atlas = ExtResource("2_q8djv")
@@ -50,11 +50,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ba54t"]
-radius = 4.0
-height = 8.0
+radius = 7.0
+height = 26.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q8djv"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
+radius = 8.0
+height = 28.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8djv"]
 bg_color = Color(0.293239, 0.704524, 0.253196, 1)
@@ -78,23 +79,22 @@ offset_bottom = 30.0
 layout_mode = 2
 weapon = ExtResource("3_tuyoq")
 
+[node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_qlg0r")]
+layout_mode = 2
+weapon = ExtResource("4_qlg0r")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uorc5")
 autoplay = "default"
 frame = 4
 frame_progress = 0.0895145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ba54t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
-
-[node name="Weapon" parent="." instance=ExtResource("3_q8djv")]
-position = Vector2(0, -4)
 
 [node name="SelfDamage" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -103,8 +103,8 @@ collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="SelfDamage"]
 unique_name_in_owner = true
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_q8djv")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_dqkch")
 debug_color = Color(0.92607, 0.250785, 0.273463, 0.42)
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -116,6 +116,7 @@ offset_bottom = -17.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_q8djv")
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

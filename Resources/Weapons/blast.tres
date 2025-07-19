@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SingleShot" load_steps=4 format=3 uid="uid://dn7vcpn06nt34"]
+
+[ext_resource type="PackedScene" uid="uid://c5ed3oofpmv88" path="res://scenes/fireball.tscn" id="1_g0s7b"]
+[ext_resource type="Script" uid="uid://e26wguocxvj3" path="res://scripts/SingleShot.gd" id="2_g0s7b"]
+[ext_resource type="Texture2D" uid="uid://cmuyc5l02m0fy" path="res://Art Assests/Weapons/wand/blast.png" id="3_bilit"]
+
+[resource]
+script = ExtResource("2_g0s7b")
+title = "Blast"
+texture = ExtResource("3_bilit")
+damage = 5.0
+cooldown = 10.0
+speed = 200.0
+ability_weapon = true
+projectile_node = ExtResource("1_g0s7b")
+metadata/_custom_type_script = "uid://dg282b8032vgv"

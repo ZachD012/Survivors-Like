@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5ed3oofpmv88" path="res://scenes/fireball.tscn" id="1_u8x0a"]
 [ext_resource type="Script" uid="uid://e26wguocxvj3" path="res://scripts/SingleShot.gd" id="2_wyb2m"]
-[ext_resource type="Texture2D" uid="uid://u2u86n72oxvd" path="res://Art Assests/wand/wand.png" id="3_js6ym"]
+[ext_resource type="Texture2D" uid="uid://u2u86n72oxvd" path="res://Art Assests/Weapons/wand/wand.png" id="3_js6ym"]
 
 [resource]
 script = ExtResource("2_wyb2m")
