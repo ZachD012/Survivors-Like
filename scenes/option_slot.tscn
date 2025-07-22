@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4lmcp4ugrr4"]
+
+[ext_resource type="Texture2D" uid="uid://u2u86n72oxvd" path="res://Art Assests/Weapons/wand/wand.png" id="1_cxwls"]
+[ext_resource type="Texture2D" uid="uid://lfru6dghxin6" path="res://Art Assests/Tiny 16 pack/Brown.png" id="2_je35h"]
+
+[node name="OptionSlot" type="TextureButton"]
+custom_minimum_size = Vector2(250, 16)
+offset_right = 250.0
+offset_bottom = 24.0
+texture_normal = ExtResource("1_cxwls")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Descriptions" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 0
+offset_left = 112.0
+offset_right = 229.0
+offset_bottom = 23.0
+text = "Upgrade speed"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(250, 16)
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 24.0
+texture = ExtResource("2_je35h")

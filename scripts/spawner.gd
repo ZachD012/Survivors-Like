@@ -54,7 +54,7 @@ func amount(number : int = 1):
 
 func _on_timer_timeout() -> void:
 	second += 1
-	amount(second % 5) #increment second with each timeout and spawn enemies
+	amount((second % 5) / 2) #increment second with each timeout and spawn enemies
 
 
 func _on_pattern_timeout() -> void:
