@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/Weapons/wand/wizard-penguin.png" id="2_q8djv"]
 [ext_resource type="PackedScene" uid="uid://c6cu6ujapeppi" path="res://scenes/slot.tscn" id="2_qlg0r"]
 [ext_resource type="Resource" uid="uid://cffauw855yprs" path="res://Resources/Weapons/Fire Wand.tres" id="3_tuyoq"]
-[ext_resource type="Resource" uid="uid://dn7vcpn06nt34" path="res://Resources/Weapons/blast.tres" id="4_qlg0r"]
+[ext_resource type="Resource" uid="uid://dfluqw320gph7" path="res://Resources/Weapons/Blast.tres" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://n0r2aggvckp8" path="res://Art Assests/Player/expereinceBar_Under.png" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://c1hc4vxq00wgi" path="res://Art Assests/Player/expereinceBar_Progress.png" id="6_smehm"]
 [ext_resource type="Script" uid="uid://cgp20vr14lyow" path="res://scripts/options.gd" id="7_smehm"]
@@ -85,7 +85,7 @@ weapon = ExtResource("3_tuyoq")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_qlg0r")]
 layout_mode = 2
-weapon = ExtResource("4_qlg0r")
+weapon = ExtResource("4_smehm")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true

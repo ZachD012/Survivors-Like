@@ -11,6 +11,7 @@ func shoot(source, target, scene_tree):
 	projectile.damage = damage
 	projectile.speed = speed
 	projectile.direction = (target.position - source.position).normalized()
+	projectile.look_at(projectile.global_position + projectile.direction)
 	projectile.pierce = pierce
 	scene_tree.current_scene.add_child(projectile)
 
