@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c32lwum2e2kut"]
+[gd_scene load_steps=26 format=3 uid="uid://c32lwum2e2kut"]
 
 [ext_resource type="Texture2D" uid="uid://cgfri0bcx5l4a" path="res://Art Assests/Weapons/wand/fire_blast.png" id="1_cux5y"]
 [ext_resource type="Script" uid="uid://kejbh4troleu" path="res://scripts/fireblast.gd" id="1_wum7a"]
@@ -108,8 +108,44 @@ turbulence_noise_speed_random = 0.73
 turbulence_influence_min = 0.316
 turbulence_influence_max = 0.457
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wum7a"]
-radius = 265.017
+[sub_resource type="CircleShape2D" id="CircleShape2D_8uqyw"]
+radius = 52.0096
+
+[sub_resource type="Gradient" id="Gradient_8a43r"]
+offsets = PackedFloat32Array(0, 0.539295, 1)
+colors = PackedColorArray(0.984314, 0.682353, 0, 1, 0.992157, 0.533333, 0, 1, 1, 0.933333, 0.654902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wum7a"]
+gradient = SubResource("Gradient_8a43r")
+
+[sub_resource type="Curve" id="Curve_8vxs3"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.248101, -5.66406), 0.0, 560.0, 0, 0, Vector2(0.875949, -0.585938), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_er8kb"]
+curve = SubResource("Curve_8vxs3")
+
+[sub_resource type="Curve" id="Curve_5jqds"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.479492), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jpxvs"]
+curve = SubResource("Curve_5jqds")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ul6ib"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.5, 0.5, 1)
+spread = 180.0
+initial_velocity_max = 75.9
+gravity = Vector3(0, 20, 0)
+radial_accel_curve = SubResource("CurveTexture_er8kb")
+damping_min = 4.619
+damping_max = 26.559
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_jpxvs")
+color_ramp = SubResource("GradientTexture1D_wum7a")
 
 [node name="Fireblast" type="Area2D"]
 collision_layer = 0
@@ -121,6 +157,7 @@ position = Vector2(7, 0)
 shape = SubResource("CircleShape2D_kagnc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_imfv6")
 autoplay = "default"
 frame_progress = 0.476371
@@ -129,16 +166,37 @@ frame_progress = 0.476371
 unique_name_in_owner = true
 
 [node name="StaticFire" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
 amount = 200
 lifetime = 0.7
 explosiveness = 0.09
 process_material = SubResource("ParticleProcessMaterial_xfvhm")
 
-[node name="BlastArea" type="CollisionShape2D" parent="."]
+[node name="Blast_Explosion" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(7, 0)
-shape = SubResource("CircleShape2D_wum7a")
-disabled = true
-debug_color = Color(0.908452, 0.291147, 0.187797, 0.42)
+light_mask = 0
+visibility_layer = 2
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+
+[node name="AOE" type="CollisionShape2D" parent="Blast_Explosion"]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_8uqyw")
+
+[node name="Blast" type="GPUParticles2D" parent="Blast_Explosion"]
+unique_name_in_owner = true
+emitting = false
+amount = 590
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.1
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ul6ib")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Blast_Explosion" to="." method="_on_blast_explosion_body_entered"]
+[connection signal="body_entered" from="Blast_Explosion" to="Blast_Explosion" method="_on_body_entered"]
+[connection signal="finished" from="Blast_Explosion/Blast" to="." method="_on_blast_finished"]

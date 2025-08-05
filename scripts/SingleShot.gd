@@ -14,6 +14,7 @@ func shoot(source, target, scene_tree):
 	projectile.look_at(projectile.global_position + projectile.direction)
 	projectile.pierce = pierce
 	scene_tree.current_scene.add_child(projectile)
+	
 
 #override activate function and call shoot
 func activate(source, target, scene_tree):

@@ -9,8 +9,7 @@ class_name Weapon
 @export var speed : float
 @export var pierce : int
 @export var ability_weapon : bool
-
-@export var projectile_node : PackedScene = preload("res://scenes/fireball.tscn")
+@export var projectile_node : PackedScene
 
 func activate(_source, _target, _scene_tree):
 	pass

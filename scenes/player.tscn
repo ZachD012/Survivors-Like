@@ -89,8 +89,16 @@ weapon = ExtResource("4_smehm")
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true
-offset_right = 300.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
 max_value = 15.0
 texture_under = ExtResource("5_fjrip")
 texture_progress = ExtResource("6_smehm")
