@@ -127,7 +127,7 @@ point_count = 2
 curve = SubResource("Curve_8vxs3")
 
 [sub_resource type="Curve" id="Curve_5jqds"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.479492), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.96962, 0.0986329), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_jpxvs"]
@@ -140,8 +140,8 @@ spread = 180.0
 initial_velocity_max = 75.9
 gravity = Vector3(0, 20, 0)
 radial_accel_curve = SubResource("CurveTexture_er8kb")
-damping_min = 4.619
-damping_max = 26.559
+damping_min = 2.309
+damping_max = 11.085
 scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_jpxvs")
@@ -188,10 +188,10 @@ shape = SubResource("CircleShape2D_8uqyw")
 [node name="Blast" type="GPUParticles2D" parent="Blast_Explosion"]
 unique_name_in_owner = true
 emitting = false
-amount = 590
-lifetime = 0.8
+amount = 1000
+lifetime = 0.78
 one_shot = true
-speed_scale = 1.1
+speed_scale = 1.38
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ul6ib")
