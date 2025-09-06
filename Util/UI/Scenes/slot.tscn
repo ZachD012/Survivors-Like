@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6cu6ujapeppi"]
 
-[ext_resource type="Script" uid="uid://bdggeyfiis3mf" path="res://scripts/slot.gd" id="1_4v6ba"]
+[ext_resource type="Script" uid="uid://bdggeyfiis3mf" path="res://Util/UI/Scripts/slot.gd" id="1_8f23v"]
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 35.0
 offset_bottom = 26.0
-script = ExtResource("1_4v6ba")
+script = ExtResource("1_8f23v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(30, 10)

@@ -1,41 +1,41 @@
 [gd_scene load_steps=26 format=3 uid="uid://c32lwum2e2kut"]
 
-[ext_resource type="Texture2D" uid="uid://cgfri0bcx5l4a" path="res://Art Assests/Weapons/wand/fire_blast.png" id="1_cux5y"]
-[ext_resource type="Script" uid="uid://kejbh4troleu" path="res://scripts/fireblast.gd" id="1_wum7a"]
+[ext_resource type="Script" uid="uid://kejbh4troleu" path="res://Objects/Scripts/fireblast.gd" id="1_wtm7r"]
+[ext_resource type="Texture2D" uid="uid://cgfri0bcx5l4a" path="res://Art Assests/Weapons/wand/fire_blast.png" id="2_somt5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kagnc"]
 radius = 9.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wum7a"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_er8kb"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(32, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpxvs"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(64, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjnok"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(96, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gakuv"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(128, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pypf3"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(160, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjpak"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(192, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_js7s5"]
-atlas = ExtResource("1_cux5y")
+atlas = ExtResource("2_somt5")
 region = Rect2(224, 0, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_imfv6"]
@@ -150,7 +150,7 @@ color_ramp = SubResource("GradientTexture1D_wum7a")
 [node name="Fireblast" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_wum7a")
+script = ExtResource("1_wtm7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 0)

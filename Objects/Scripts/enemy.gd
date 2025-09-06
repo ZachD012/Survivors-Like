@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player_reference : CharacterBody2D
-var damage_popup_node = preload("res://scenes/damage.tscn")
+var damage_popup_node = preload("res://Util/UI/Scenes/damage.tscn")
 var direction : Vector2
 var damage : float
 var knockback : Vector2
