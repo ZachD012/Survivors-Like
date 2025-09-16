@@ -1,8 +1,50 @@
-[gd_resource type="Resource" script_class="SingleShot" load_steps=4 format=3 uid="uid://cffauw855yprs"]
+[gd_resource type="Resource" script_class="SingleShot" load_steps=11 format=3 uid="uid://cffauw855yprs"]
 
 [ext_resource type="PackedScene" uid="uid://c5ed3oofpmv88" path="res://Objects/Scenes/fireball.tscn" id="1_u8x0a"]
 [ext_resource type="Script" uid="uid://e26wguocxvj3" path="res://Util/Classes/SingleShot.gd" id="2_wyb2m"]
 [ext_resource type="Texture2D" uid="uid://u2u86n72oxvd" path="res://Art Assests/Weapons/wand/wand.png" id="3_js6ym"]
+[ext_resource type="Script" uid="uid://clb70riq561a6" path="res://Util/Classes/Upgrade.gd" id="4_js6ym"]
+[ext_resource type="Script" uid="uid://dh6ne8rrxoeou" path="res://Util/Classes/ProjectileUpgrade.gd" id="5_nx6es"]
+
+[sub_resource type="Resource" id="Resource_sj5ws"]
+script = ExtResource("5_nx6es")
+pierce = 0
+damage = 1.0
+cooldown = 0.0
+description = "+1 Damage"
+metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
+
+[sub_resource type="Resource" id="Resource_oim7n"]
+script = ExtResource("5_nx6es")
+pierce = 0
+damage = 0.0
+cooldown = -0.2
+description = "-0.2s Cooldown"
+metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
+
+[sub_resource type="Resource" id="Resource_ja5fu"]
+script = ExtResource("5_nx6es")
+pierce = 1
+damage = 0.0
+cooldown = 0.0
+description = "+1 Pierce"
+metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
+
+[sub_resource type="Resource" id="Resource_dqi53"]
+script = ExtResource("5_nx6es")
+pierce = 0
+damage = 2.0
+cooldown = 0.0
+description = "+2 damage"
+metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
+
+[sub_resource type="Resource" id="Resource_7xbqj"]
+script = ExtResource("5_nx6es")
+pierce = 0
+damage = 0.0
+cooldown = -0.1
+description = "-0.1s Cooldown"
+metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
 
 [resource]
 script = ExtResource("2_wyb2m")
@@ -14,4 +56,6 @@ speed = 200.0
 pierce = 1
 ability_weapon = false
 projectile_node = ExtResource("1_u8x0a")
+level = 1
+upgrades = Array[ExtResource("4_js6ym")]([SubResource("Resource_sj5ws"), SubResource("Resource_oim7n"), SubResource("Resource_ja5fu"), SubResource("Resource_dqi53"), SubResource("Resource_7xbqj")])
 metadata/_custom_type_script = "uid://e26wguocxvj3"

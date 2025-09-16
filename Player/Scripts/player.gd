@@ -20,11 +20,12 @@ var level : int = 1:
 	set(value):
 		level = value
 		%Level.text = "Lvl " + str(value)
+		%Options.show_option()
 		
 		if level >= 3:
-			%XP.max_value = 25
-		elif level >= 7:
 			%XP.max_value = 50
+		elif level >= 7:
+			%XP.max_value = 100
 
 func _physics_process(_delta):
 	#Checking if there is a nearest enemy then stores its seperation as the distance. Otherwise set the value to default (infinite)
@@ -42,7 +43,8 @@ func _physics_process(_delta):
 func take_damage(amount):
 	health -= amount
 	if health <= 0.0:
-			health_depleted.emit()
+		health_depleted.emit()
+
 func _on_self_damage_body_entered(body):
 	take_damage(body.damage)
 

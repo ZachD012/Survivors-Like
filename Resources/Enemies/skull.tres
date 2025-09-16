@@ -1,13 +1,77 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cyca666bp6wkk"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://cyca666bp6wkk"]
 
 [ext_resource type="Script" uid="uid://bvobwnifrdhcx" path="res://Util/Classes/EnemyType.gd" id="1_8305s"]
-[ext_resource type="Texture2D" uid="uid://ds4ckoed47tlo" path="res://Art Assests/Enemies/Skull1.png" id="2_yqjcp"]
+[ext_resource type="Texture2D" uid="uid://xb54fd54cgfq" path="res://Art Assests/Enemies/Skull.png" id="2_8305s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqjcp"]
+atlas = ExtResource("2_8305s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kilpd"]
+atlas = ExtResource("2_8305s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok1mr"]
+atlas = ExtResource("2_8305s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgcpx"]
+atlas = ExtResource("2_8305s")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usj28"]
+atlas = ExtResource("2_8305s")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir83s"]
+atlas = ExtResource("2_8305s")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqn62"]
+atlas = ExtResource("2_8305s")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4201p"]
+atlas = ExtResource("2_8305s")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16v4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqjcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kilpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok1mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgcpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usj28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir83s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqn62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4201p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [resource]
 script = ExtResource("1_8305s")
 title = "Skull"
-texture = ExtResource("2_yqjcp")
 health = 2.0
 damage = 1.0
 experience = 1
+sprite_frames = SubResource("SpriteFrames_16v4r")
 metadata/_custom_type_script = "uid://bvobwnifrdhcx"

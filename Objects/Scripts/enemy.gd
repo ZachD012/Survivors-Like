@@ -19,7 +19,7 @@ var elite : bool = false:
 	set(value):
 		elite = value
 		if value:
-			$Sprite2D.material = load("res://Shaders/Red.tres")
+			$AnimatedSprite2D.material = load("res://Shaders/Red.tres")
 			scale = Vector2(1.5,1.5)
 			health *= 5
 			damage *= 5
@@ -28,7 +28,7 @@ var elite : bool = false:
 var type : Enemy:
 	set(value):
 		type = value
-		$Sprite2D.texture = value.texture
+		$AnimatedSprite2D.sprite_frames = value.sprite_frames
 		damage = value.damage
 		health = value.health
 		experience = value.experience
@@ -49,10 +49,11 @@ func knockback_update(delta):
 		
 func take_damage(amount):
 	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite2D, "modulate",Color(255, 255, 255), 0.2)
-	tween.chain().tween_property($Sprite2D, "modulate",Color(1, 1, 1), 0.2)
+	tween.tween_property($AnimatedSprite2D, "modulate",Color(255, 255, 255), 0.2)
+	tween.chain().tween_property($AnimatedSprite2D, "modulate",Color(1, 1, 1), 0.2)
 	tween.bind_node(self)#binds it to enemy so when they die it doesnt throw errors
 	damage_popup(amount)
+	await tween.finished
 	health -= amount
 
 func check_seperation(_delta):

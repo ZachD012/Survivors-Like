@@ -6,7 +6,7 @@ extends Node2D
 #how far to spawn from player
 var distance : float = 200
 var can_spawn : bool = true
-var mob_cap : int = 100
+var mob_cap : int = 50
 
 @export var enemy_types : Array[Enemy]
 
