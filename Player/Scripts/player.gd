@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal health_depleted
 var area : float = 0
-var move_speed = 100
+var movement_speed = 100
 var health = 100.0:
 	set(value):
 		health = value
@@ -36,7 +36,7 @@ func _physics_process(_delta):
 		nearest_enemy = null
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * move_speed
+	velocity = direction * movement_speed
 	move_and_slide()
 	check_XP()
 
