@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://w1a4xvu7mi5k"]
+[gd_scene load_steps=21 format=3 uid="uid://w1a4xvu7mi5k"]
 
 [ext_resource type="Script" uid="uid://vhiafiidc3rd" path="res://Player/Scripts/player.gd" id="1_wqvx2"]
 [ext_resource type="Texture2D" uid="uid://b5j6sd1l022wa" path="res://Art Assests/Weapons/wand/wizard-penguin.png" id="2_q8djv"]
 [ext_resource type="PackedScene" uid="uid://c6cu6ujapeppi" path="res://Util/UI/Scenes/slot.tscn" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://55ocmlw6eojv" path="res://Art Assests/Player/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/RectangleBox_96x96.png" id="2_x3vf3"]
 [ext_resource type="Resource" uid="uid://cffauw855yprs" path="res://Resources/Weapons/Fire Wand.tres" id="3_tuyoq"]
-[ext_resource type="Resource" uid="uid://dfluqw320gph7" path="res://Resources/Weapons/Blast.tres" id="4_smehm"]
 [ext_resource type="Texture2D" uid="uid://n0r2aggvckp8" path="res://Art Assests/Player/expereinceBar_Under.png" id="5_fjrip"]
+[ext_resource type="Resource" uid="uid://dijgsn467vbw2" path="res://Resources/PassiveItems/Max_Health.tres" id="6_5htga"]
+[ext_resource type="PackedScene" uid="uid://dpsstn1ymbvpv" path="res://Util/UI/Scenes/passive_slot.tscn" id="6_apopc"]
 [ext_resource type="Texture2D" uid="uid://c1hc4vxq00wgi" path="res://Art Assests/Player/expereinceBar_Progress.png" id="6_smehm"]
 [ext_resource type="Script" uid="uid://cgp20vr14lyow" path="res://Util/UI/Scripts/options.gd" id="7_smehm"]
 [ext_resource type="Script" uid="uid://ccvkos244lw6p" path="res://Player/camera.gd" id="9_00tjw"]
@@ -78,10 +79,17 @@ script = ExtResource("1_wqvx2")
 
 [node name="Panel" type="NinePatchRect" parent="UI"]
 process_mode = 3
-offset_left = 176.0
-offset_top = 48.0
-offset_right = 456.0
-offset_bottom = 216.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -84.0
+offset_right = 140.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_x3vf3")
@@ -109,11 +117,25 @@ offset_bottom = 38.0
 
 [node name="Slot" parent="UI/Weapons" instance=ExtResource("2_qlg0r")]
 layout_mode = 2
-weapon = ExtResource("3_tuyoq")
+item = ExtResource("3_tuyoq")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_qlg0r")]
 layout_mode = 2
-weapon = ExtResource("4_smehm")
+
+[node name="PassiveItems" type="HBoxContainer" parent="UI"]
+offset_top = 41.0
+offset_right = 98.0
+offset_bottom = 71.0
+
+[node name="PassiveSlot" parent="UI/PassiveItems" instance=ExtResource("6_apopc")]
+layout_mode = 2
+item = ExtResource("6_5htga")
+
+[node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("6_apopc")]
+layout_mode = 2
+
+[node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("6_apopc")]
+layout_mode = 2
 
 [node name="XP" type="TextureProgressBar" parent="UI"]
 unique_name_in_owner = true
@@ -140,7 +162,7 @@ offset_right = 300.0
 offset_bottom = 30.0
 text = "Lvl 1"
 
-[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "panel")]
+[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "passive_items", "panel")]
 unique_name_in_owner = true
 process_mode = 3
 anchors_preset = -1
@@ -148,10 +170,16 @@ anchor_left = 0.4625
 anchor_top = 0.275
 anchor_right = 0.525
 anchor_bottom = 0.4
+offset_left = 3.0
+offset_top = 40.0
+offset_right = 3.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 script = ExtResource("7_smehm")
 weapons = NodePath("../Weapons")
+passive_items = NodePath("../PassiveItems")
 panel = NodePath("../Panel")
 metadata/_edit_use_anchors_ = true
 
@@ -187,7 +215,7 @@ offset_top = -21.0
 offset_right = 12.0
 offset_bottom = -17.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_q8djv")
-value = 100.0
+max_value = 50.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 

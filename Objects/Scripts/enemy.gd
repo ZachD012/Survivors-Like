@@ -12,14 +12,6 @@ var health : float:
 		health = value
 		if health <= 0:
 			player_reference.experience += experience
-			var death_shader = load("res://Shaders/enemy_death.gdshader")
-			$AnimatedSprite2D.material = death_shader
-			if $AnimatedSprite2D.material != null:
-				var death_animation_time = $AnimatedSprite2D.material.get_shader_parameter("Progress")
-				while death_animation_time < 1.0:
-					death_animation_time += 0.1
-			else:
-				print("material is empty")
 			queue_free()
 const SPEED = 38.0
 

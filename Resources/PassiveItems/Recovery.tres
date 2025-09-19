@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=7 format=3 uid="uid://dpd4l1hl6c6xm"]
+
+[ext_resource type="Script" uid="uid://d0064lsf455bd" path="res://Util/UI/Scripts/PassiveItem.gd" id="1_7wor1"]
+[ext_resource type="Texture2D" uid="uid://voninnpn2pw1" path="res://Art Assests/Player/Regen.png" id="2_7wor1"]
+[ext_resource type="Script" uid="uid://dr2q6ssynwv1d" path="res://Util/UI/Scripts/Stats.gd" id="3_vlibm"]
+
+[sub_resource type="Resource" id="Resource_sre7d"]
+script = ExtResource("3_vlibm")
+description = "+0.5 Recovery"
+max_health = 0.0
+recovery = 0.5
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_0s07s"]
+script = ExtResource("3_vlibm")
+description = "+0.5 Recovery"
+max_health = 0.0
+recovery = 0.5
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_ujq6d"]
+script = ExtResource("3_vlibm")
+description = "+1 Recovery"
+max_health = 0.0
+recovery = 1.0
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[resource]
+script = ExtResource("1_7wor1")
+upgrades = Array[ExtResource("3_vlibm")]([SubResource("Resource_sre7d"), SubResource("Resource_0s07s"), SubResource("Resource_ujq6d")])
+title = "Recovery"
+texture = ExtResource("2_7wor1")
+metadata/_custom_type_script = "uid://d0064lsf455bd"

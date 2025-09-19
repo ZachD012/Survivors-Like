@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=7 format=3 uid="uid://dijgsn467vbw2"]
+
+[ext_resource type="Script" uid="uid://d0064lsf455bd" path="res://Util/UI/Scripts/PassiveItem.gd" id="1_16cbh"]
+[ext_resource type="Texture2D" uid="uid://cmgpmewaw1d5r" path="res://Art Assests/Player/MaxHealth.png" id="2_16cbh"]
+[ext_resource type="Script" uid="uid://dr2q6ssynwv1d" path="res://Util/UI/Scripts/Stats.gd" id="3_eq4xf"]
+
+[sub_resource type="Resource" id="Resource_1ifg5"]
+script = ExtResource("3_eq4xf")
+description = "+10 Health"
+max_health = 10.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_pu22j"]
+script = ExtResource("3_eq4xf")
+description = "+10 Health"
+max_health = 10.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_k6h6l"]
+script = ExtResource("3_eq4xf")
+description = "+20 Health"
+max_health = 20.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[resource]
+script = ExtResource("1_16cbh")
+upgrades = Array[ExtResource("3_eq4xf")]([SubResource("Resource_1ifg5"), SubResource("Resource_pu22j"), SubResource("Resource_k6h6l")])
+title = "Max Health"
+texture = ExtResource("2_16cbh")
+metadata/_custom_type_script = "uid://d0064lsf455bd"

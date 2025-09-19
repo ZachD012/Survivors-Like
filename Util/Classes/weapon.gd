@@ -1,8 +1,5 @@
-extends Resource
+extends Item
 class_name Weapon
-
-@export var title : String
-@export var texture : Texture2D
 
 @export var damage : float
 @export var cooldown : float
@@ -10,7 +7,6 @@ class_name Weapon
 @export var pierce : int
 @export var ability_weapon : bool
 @export var projectile_node : PackedScene
-@export var level : int = 1
 
 @export var upgrades : Array[Upgrade]
 

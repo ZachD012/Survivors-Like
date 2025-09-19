@@ -3,10 +3,16 @@ extends CharacterBody2D
 signal health_depleted
 var area : float = 0
 var movement_speed = 100
-var health = 100.0:
+var health = 50:
 	set(value):
-		health = value
+		health = max(value, 0)
 		%HealthBar.value = value
+var max_health : float = 50 :
+	set(value):
+		max_health = value
+		%HealthBar.max_value = value
+var recovery : float = 0.1
+var armor : float = 2
 
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = 150 + area
@@ -39,9 +45,12 @@ func _physics_process(_delta):
 	velocity = direction * movement_speed
 	move_and_slide()
 	check_XP()
+	health += recovery * _delta
 
 func take_damage(amount):
-	health -= amount
+	var damage = max(amount * (10/(armor+10)), 0)
+	health -= damage
+	print("Health: ", health, " Damage Taken: ", damage)
 	if health <= 0.0:
 		health_depleted.emit()
 

@@ -48,14 +48,13 @@ metadata/_custom_type_script = "uid://dh6ne8rrxoeou"
 
 [resource]
 script = ExtResource("2_wyb2m")
-title = "Fire Wand"
-texture = ExtResource("3_js6ym")
 damage = 1.0
 cooldown = 0.7
 speed = 200.0
 pierce = 1
 ability_weapon = false
 projectile_node = ExtResource("1_u8x0a")
-level = 1
 upgrades = Array[ExtResource("4_js6ym")]([SubResource("Resource_sj5ws"), SubResource("Resource_oim7n"), SubResource("Resource_ja5fu"), SubResource("Resource_dqi53"), SubResource("Resource_7xbqj")])
+title = "Fire Wand"
+texture = ExtResource("3_js6ym")
 metadata/_custom_type_script = "uid://e26wguocxvj3"

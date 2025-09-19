@@ -1,9 +1,9 @@
 extends PanelContainer
 
 var can_attack : bool = true
-@export var weapon : Weapon:
+@export var item : Weapon:
 	set(value):
-		weapon = value
+		item = value
 		$TextureRect.texture = value.texture
 		$Cooldown.wait_time = value.cooldown
 		
@@ -12,12 +12,12 @@ func _process(delta: float) -> void:
 
 func _on_cooldown_timeout() -> void:
 	can_attack = true
-	if not weapon.ability_weapon:
-		$Cooldown.wait_time = weapon.cooldown
-		weapon.activate(owner, owner.nearest_enemy, get_tree())
+	if item != null and item.ability_weapon != null:
+		$Cooldown.wait_time = item.cooldown
+		item.activate(owner, owner.nearest_enemy, get_tree())
 
 func ability_check():
-	if Input.is_action_pressed("ability") and weapon.ability_weapon and can_attack:
+	if Input.is_action_pressed("ability") and item != null and item.ability_weapon != null and can_attack:
 		can_attack = false
-		$Cooldown.wait_time = weapon.cooldown
-		weapon.activate(owner, owner.nearest_enemy, get_tree())
+		$Cooldown.wait_time = item.cooldown
+		item.activate(owner, owner.nearest_enemy, get_tree())
