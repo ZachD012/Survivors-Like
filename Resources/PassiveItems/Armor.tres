@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="PassiveItem" load_steps=7 format=3 uid="uid://cgsmhiadrvg0n"]
+
+[ext_resource type="Script" uid="uid://d0064lsf455bd" path="res://Util/UI/Scripts/PassiveItem.gd" id="1_4u3m8"]
+[ext_resource type="Texture2D" uid="uid://c2a6aj3su67h" path="res://Art Assests/Player/Armor.png" id="2_4u3m8"]
+[ext_resource type="Script" uid="uid://dr2q6ssynwv1d" path="res://Util/UI/Scripts/Stats.gd" id="3_ot02l"]
+
+[sub_resource type="Resource" id="Resource_8y8a4"]
+script = ExtResource("3_ot02l")
+description = "+1 Armor"
+max_health = 0.0
+recovery = 0.0
+armor = 1.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_tnpf8"]
+script = ExtResource("3_ot02l")
+description = "+2 Armor"
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[sub_resource type="Resource" id="Resource_mm5nv"]
+script = ExtResource("3_ot02l")
+description = "+3 Armor"
+max_health = 0.0
+recovery = 0.0
+armor = 3.0
+movement_speed = 0.0
+metadata/_custom_type_script = "uid://dr2q6ssynwv1d"
+
+[resource]
+script = ExtResource("1_4u3m8")
+upgrades = Array[ExtResource("3_ot02l")]([SubResource("Resource_8y8a4"), SubResource("Resource_tnpf8"), SubResource("Resource_mm5nv")])
+title = "Armor"
+texture = ExtResource("2_4u3m8")
+metadata/_custom_type_script = "uid://d0064lsf455bd"

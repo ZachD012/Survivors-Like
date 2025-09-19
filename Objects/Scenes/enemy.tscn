@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://chps6oa2i5rr0"]
+
+[ext_resource type="Script" uid="uid://c204ei88hsmyw" path="res://Objects/Scripts/enemy.gd" id="1_sto6h"]
+[ext_resource type="Texture2D" uid="uid://xb54fd54cgfq" path="res://Art Assests/Enemies/Skull.png" id="2_sto6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytyfe"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bd5h"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeigw"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stulq"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juhc6"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmq5k"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clvcn"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tapsp"]
+atlas = ExtResource("2_sto6h")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0so12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytyfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bd5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeigw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stulq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juhc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmq5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clvcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tapsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqxei"]
+radius = 7.0
+height = 14.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_sto6h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_0so12")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lqxei")
