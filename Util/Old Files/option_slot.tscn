@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd4lmcp4ugrr4"]
 
-[ext_resource type="Script" uid="uid://cl7aqbxgad7u1" path="res://Util/UI/Scripts/option_slot.gd" id="2_rikam"]
-[ext_resource type="Texture2D" uid="uid://bp6prs8w4j1d2" path="res://Art Assests/Player/OptionSlot.png" id="3_2u66n"]
+[ext_resource type="Script" uid="uid://cl7aqbxgad7u1" path="res://Util/Old Files/option_slot.gd" id="1_x8tl6"]
+[ext_resource type="Texture2D" uid="uid://bp6prs8w4j1d2" path="res://Art Assests/Player/OptionSlot.png" id="2_n8erv"]
 
 [node name="OptionSlot" type="TextureButton"]
 custom_minimum_size = Vector2(250, 24)
@@ -9,7 +9,7 @@ offset_right = 250.0
 offset_bottom = 24.0
 mouse_filter = 1
 ignore_texture_size = true
-script = ExtResource("2_rikam")
+script = ExtResource("1_x8tl6")
 
 [node name="Item" type="TextureRect" parent="."]
 layout_mode = 0
@@ -45,6 +45,6 @@ custom_minimum_size = Vector2(250, 24)
 layout_mode = 0
 offset_right = 250.0
 offset_bottom = 24.0
-texture = ExtResource("3_2u66n")
+texture = ExtResource("2_n8erv")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

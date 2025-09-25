@@ -36,4 +36,5 @@ script = ExtResource("1_7wor1")
 upgrades = Array[ExtResource("3_vlibm")]([SubResource("Resource_sre7d"), SubResource("Resource_0s07s"), SubResource("Resource_ujq6d")])
 title = "Recovery"
 texture = ExtResource("2_7wor1")
+level = 0
 metadata/_custom_type_script = "uid://d0064lsf455bd"

@@ -12,7 +12,7 @@ var max_health : float = 50 :
 		max_health = value
 		%HealthBar.max_value = value
 var recovery : float = 0.1
-var armor : float = 2
+var armor : float = 0
 
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = 150 + area
@@ -26,12 +26,13 @@ var level : int = 1:
 	set(value):
 		level = value
 		%Level.text = "Lvl " + str(value)
-		%Options.show_option()
+		%SkillTree.open_tree()
+		#%Options.show_option()
 		
 		if level >= 3:
-			%XP.max_value = 50
-		elif level >= 7:
 			%XP.max_value = 100
+		elif level >= 7:
+			%XP.max_value = 250
 
 func _physics_process(_delta):
 	#Checking if there is a nearest enemy then stores its seperation as the distance. Otherwise set the value to default (infinite)

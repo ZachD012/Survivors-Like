@@ -1,6 +1,9 @@
 extends Weapon
 class_name SingleShot
 
+func _child_upgrade(upgrade):
+	area_of_effect += upgrade.area_of_effect
+
 func shoot(source, target, scene_tree):
 	if target == null:
 		return

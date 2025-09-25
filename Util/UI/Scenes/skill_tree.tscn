@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwi40mnxi4b16"]
+
+[ext_resource type="PackedScene" uid="uid://bghnosuj0618v" path="res://Util/UI/Scenes/skill_button.tscn" id="1_7h1f7"]
+[ext_resource type="Script" uid="uid://c2loi36l7qhki" path="res://Util/UI/Scripts/skill_tree.gd" id="1_ukyqr"]
+[ext_resource type="Resource" uid="uid://cffauw855yprs" path="res://Resources/Weapons/Fire Wand.tres" id="2_myk5u"]
+[ext_resource type="Resource" uid="uid://dijgsn467vbw2" path="res://Resources/PassiveItems/Max_Health.tres" id="3_b3bep"]
+[ext_resource type="Resource" uid="uid://dpd4l1hl6c6xm" path="res://Resources/PassiveItems/Recovery.tres" id="4_tsb5r"]
+[ext_resource type="Resource" uid="uid://cgsmhiadrvg0n" path="res://Resources/PassiveItems/Armor.tres" id="5_ukyqr"]
+[ext_resource type="Resource" uid="uid://dooq4cebmbclb" path="res://Resources/Weapons/blast.tres" id="6_rw8da"]
+
+[node name="SkillTree" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.555
+offset_top = -151.0
+offset_right = 282.555
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ukyqr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FireWand" parent="." instance=ExtResource("1_7h1f7")]
+layout_mode = 0
+offset_left = 264.555
+offset_top = 128.0
+offset_right = 304.555
+offset_bottom = 168.0
+skill_item = ExtResource("2_myk5u")
+
+[node name="MaxHealth" parent="FireWand" instance=ExtResource("1_7h1f7")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 63.0
+offset_right = 41.0
+offset_bottom = 103.0
+disabled = true
+skill_item = ExtResource("3_b3bep")
+
+[node name="Recovery" parent="FireWand" instance=ExtResource("1_7h1f7")]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -1.0
+offset_right = -33.0
+offset_bottom = 39.0
+disabled = true
+skill_item = ExtResource("4_tsb5r")
+
+[node name="Armor" parent="FireWand" instance=ExtResource("1_7h1f7")]
+layout_mode = 0
+offset_left = 75.0
+offset_right = 115.0
+disabled = true
+skill_item = ExtResource("5_ukyqr")
+
+[node name="Blast" parent="FireWand" instance=ExtResource("1_7h1f7")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -75.0
+offset_right = 41.0
+offset_bottom = -35.0
+disabled = true
+skill_item = ExtResource("6_rw8da")

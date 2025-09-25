@@ -5,10 +5,13 @@ class_name Weapon
 @export var cooldown : float
 @export var speed : float
 @export var pierce : int
-@export var ability_weapon : bool
+@export var ability_weapon : bool = false
 @export var projectile_node : PackedScene
+@export var area_of_effect : float
+var player_reference
 
 @export var upgrades : Array[Upgrade]
+
 
 func activate(_source, _target, _scene_tree):
 	pass
@@ -29,3 +32,8 @@ func upgrade_item():
 	pierce += upgrade.pierce
 	
 	level += 1
+	
+	_child_upgrade(upgrade)
+
+func _child_upgrade(upgrade):
+	pass
