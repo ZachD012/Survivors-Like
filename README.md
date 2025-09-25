@@ -9,6 +9,7 @@ Creating a vampire survivors-like game where you play as a penguin mage battling
 ## Screenshots
 
 ***Coming soon
+<img width="160" height="32" alt="wizard-penguin" src="https://github.com/user-attachments/assets/0be68183-e770-481f-920e-65ffa8827e59" />
 
 ## How to Play / Run
 - Open the project in **Godot 4.4**
