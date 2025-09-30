@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 signal health_depleted
+
 var area : float = 0
 var movement_speed = 100
 var health = 50:
 	set(value):
 		health = max(value, 0)
 		%HealthBar.value = value
-var max_health : float = 50 :
+var max_health : float :
 	set(value):
 		max_health = value
 		%HealthBar.max_value = value
@@ -30,9 +31,9 @@ var level : int = 1:
 		#%Options.show_option()
 		
 		if level >= 3:
-			%XP.max_value = 100
+			%XP.max_value = 150
 		elif level >= 7:
-			%XP.max_value = 250
+			%XP.max_value = 300
 
 func _physics_process(_delta):
 	#Checking if there is a nearest enemy then stores its seperation as the distance. Otherwise set the value to default (infinite)
@@ -71,3 +72,9 @@ func check_XP():
 	if experience >= %XP.max_value:
 		experience -= %XP.max_value
 		level += 1
+
+
+func _on_health_depleted() -> void:
+	%GameOver.show()
+	%SkillTree.reset()
+	get_tree().paused = true

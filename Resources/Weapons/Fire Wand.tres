@@ -34,6 +34,7 @@ pierce = 1
 ability_weapon = false
 projectile_node = ExtResource("1_u8x0a")
 area_of_effect = 0.0
+starting_weapon = true
 upgrades = Array[ExtResource("4_js6ym")]([SubResource("Resource_sj5ws"), SubResource("Resource_oim7n")])
 title = "Fire Wand"
 texture = ExtResource("3_js6ym")

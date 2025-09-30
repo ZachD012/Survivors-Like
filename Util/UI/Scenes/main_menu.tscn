@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp31wgbq6ey0w"]
+
+[ext_resource type="Script" uid="uid://hyeuj6s5qy8v" path="res://Util/UI/Scripts/main_menu.gd" id="1_3g57u"]
+[ext_resource type="Texture2D" uid="uid://85jh33tleu5" path="res://Art Assests/UI/Start.png" id="2_hhqcl"]
+[ext_resource type="Texture2D" uid="uid://ckcrly7m5ps6k" path="res://Art Assests/UI/Settingst.png" id="3_kej2l"]
+[ext_resource type="Texture2D" uid="uid://l4fo316t53ha" path="res://Art Assests/UI/StartHover.png" id="3_yxdhp"]
+[ext_resource type="Texture2D" uid="uid://beboqxswyiva0" path="res://Art Assests/UI/Exit.png" id="4_yxdhp"]
+[ext_resource type="Texture2D" uid="uid://dayqsi0v6mt1h" path="res://Art Assests/UI/SettingsHover.png" id="5_1xdo8"]
+[ext_resource type="Texture2D" uid="uid://dejavrfp47pl7" path="res://Art Assests/UI/ExixHovert.png" id="6_kej2l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3g57u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -100.0
+offset_right = 64.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_hhqcl")
+texture_hover = ExtResource("3_yxdhp")
+
+[node name="Settings" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_kej2l")
+texture_hover = ExtResource("5_1xdo8")
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_yxdhp")
+texture_hover = ExtResource("6_kej2l")
+
+[connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

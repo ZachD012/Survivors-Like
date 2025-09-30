@@ -8,6 +8,7 @@ class_name Weapon
 @export var ability_weapon : bool = false
 @export var projectile_node : PackedScene
 @export var area_of_effect : float
+@export var starting_weapon : bool
 var player_reference
 
 @export var upgrades : Array[Upgrade]

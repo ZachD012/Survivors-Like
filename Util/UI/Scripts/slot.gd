@@ -19,7 +19,7 @@ func _on_cooldown_timeout() -> void:
 		item.activate(player, player.nearest_enemy, get_tree())
 
 func ability_check():
-	if Input.is_action_pressed("ability") and item != null and item.ability_weapon != null and can_attack:
+	if Input.is_action_just_pressed("ability") and item != null and item.ability_weapon != null and can_attack:
 		can_attack = false
 		$Cooldown.wait_time = item.cooldown
 		item.activate(player, player.nearest_enemy, get_tree())
