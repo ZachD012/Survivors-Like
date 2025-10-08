@@ -7,6 +7,7 @@ class_name SkillNode
 @onready var line_2d: Line2D = $Line2D
 @onready var skill_tree = get_owner()
 var clone
+var weapon_slot
 		
 func _ready() -> void:
 	if skill_item != null:
@@ -63,7 +64,10 @@ func give_item(item):
 #	wont work need to instantiate a slot into weapons and passive item as a child then
 #	assign its item property as a weapon or passive item respectively
 	if item is Weapon:
-		var weapon_slot = preload("res://Util/UI/Scenes/weapon_slot.tscn").instantiate()
+		if item.ability_weapon:
+			weapon_slot = preload("res://Util/UI/Scenes/active_weapon_slot.tscn").instantiate()
+		else: 
+			weapon_slot = preload("res://Util/UI/Scenes/weapon_slot.tscn").instantiate()
 		weapon_slot.item = item
 		if skill_tree.weapon_container != null:
 			skill_tree.weapon_container.add_child(weapon_slot)

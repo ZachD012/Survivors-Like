@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c787n5ayin35x"]
+
+[ext_resource type="Script" uid="uid://dg2fn2ptb1b3s" path="res://Util/Classes/active_weapon_slot.gd" id="1_n68wg"]
+[ext_resource type="Texture2D" uid="uid://7fsljnrhtmmj" path="res://icon.svg" id="2_jd8xl"]
+[ext_resource type="Texture2D" uid="uid://dqtx2m0ywlom8" path="res://Art Assests/Tiny 16 pack/white square.png" id="2_tjijq"]
+
+[node name="ActiveSlot" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n68wg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_children = 2
+custom_minimum_size = Vector2(30, 10)
+layout_mode = 2
+texture = ExtResource("2_jd8xl")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CooldownBar" type="TextureProgressBar" parent="TextureRect"]
+self_modulate = Color(0.27451, 0.27451, 0.27451, 0.431373)
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.1
+value = 18.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("2_tjijq")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
