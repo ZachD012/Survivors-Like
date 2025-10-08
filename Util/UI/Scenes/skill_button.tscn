@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bghnosuj0618v"]
+[gd_scene load_steps=3 format=3 uid="uid://bghnosuj0618v"]
 
+[ext_resource type="Texture2D" uid="uid://lfru6dghxin6" path="res://Art Assests/Tiny 16 pack/Brown.png" id="2_8nfdc"]
 [ext_resource type="Script" uid="uid://dmckfyi66wb7g" path="res://Util/UI/Scripts/skill_button.gd" id="2_h1djo"]
 
 [node name="SkillButton" type="TextureButton"]
+z_index = 1
+z_as_relative = false
 offset_right = 40.0
 offset_bottom = 40.0
 toggle_mode = true
@@ -15,6 +18,30 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+
+[node name="DescriptionBox" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.588235)
+z_as_relative = false
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+texture = ExtResource("2_8nfdc")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width = 3.0
+default_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 8.0
+offset_right = 177.0
+offset_bottom = 31.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Upgrade speed"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -30,10 +57,6 @@ text = "0/3"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Line2D" type="Line2D" parent="."]
-top_level = true
-z_index = -1
-width = 3.0
-default_color = Color(0.277528, 0.277528, 0.277528, 1)
-
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

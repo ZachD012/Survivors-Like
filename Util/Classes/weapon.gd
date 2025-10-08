@@ -8,11 +8,18 @@ class_name Weapon
 @export var ability_weapon : bool = false
 @export var projectile_node : PackedScene
 @export var area_of_effect : float
-@export var starting_weapon : bool
+@export var starting_weapon : bool = false
 var player_reference
 
 @export var upgrades : Array[Upgrade]
 
+
+func reset():
+	if starting_weapon:
+		level = 1
+	else: 
+		level = 0
+	
 
 func activate(_source, _target, _scene_tree):
 	pass
@@ -34,7 +41,11 @@ func upgrade_item():
 	
 	level += 1
 	
+	print("upgraded weapon from ", str(damage), " to ", str(upgrade.damage))
+#	right now this is here for the area of effect projectile upgrade for the blast but there is
+#	probably a better way of implementing this.
 	_child_upgrade(upgrade)
 
-func _child_upgrade(upgrade):
+#why did I feel the need to add this?
+func _child_upgrade(_upgrade):
 	pass

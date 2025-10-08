@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6cu6ujapeppi"]
+
+[ext_resource type="Script" uid="uid://bdggeyfiis3mf" path="res://Util/UI/Scripts/weapon_slot.gd" id="1_rqu7w"]
+[ext_resource type="Texture2D" uid="uid://doywqt021k201" path="res://Art Assests/Tiny 16 pack/box.png" id="2_u604l"]
+[ext_resource type="Texture2D" uid="uid://bj5qjsl5ndr3i" path="res://Art Assests/Tiny 16 pack/black box.png" id="3_8dh5w"]
+
+[node name="Slot" type="PanelContainer" groups=["Player"]]
+offset_right = 30.0
+offset_bottom = 24.0
+script = ExtResource("1_rqu7w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 10)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Cooldown" type="Timer" parent="."]
+autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("2_u604l")
+texture_progress = ExtResource("3_8dh5w")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

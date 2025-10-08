@@ -1,25 +1,16 @@
 extends Control
 
-@export var weapons : HBoxContainer
-@export var passive_items : HBoxContainer
+@export var weapon_container : HBoxContainer
+@export var passive_item_container : HBoxContainer
+
+func reset():
+	for node in get_children():
+		if node is SkillNode:
+			node.reset()
 
 func _ready() -> void:
 	hide()
-
-func reset():
-	for slot in weapons:
-		var weapon : Weapon
-		if weapon in slot:
-			if weapon.starting_weapon:
-				weapon.level = 1
-		else:
-			weapon.level = 0
-	for slot in passive_items:
-		var passive_item : PassiveItem
-		if passive_item in slot:
-			passive_items.level = 0
-				
-
+	
 func close_tree():
 	hide()
 	get_tree().paused = false

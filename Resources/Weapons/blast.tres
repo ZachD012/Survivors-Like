@@ -42,6 +42,7 @@ pierce = 1
 ability_weapon = true
 projectile_node = ExtResource("1_srsrw")
 area_of_effect = 0.0
+starting_weapon = false
 upgrades = Array[ExtResource("4_bilit")]([SubResource("Resource_fr3mr"), SubResource("Resource_n57jj"), SubResource("Resource_huhg8")])
 title = "Blast"
 texture = ExtResource("3_qnm5t")

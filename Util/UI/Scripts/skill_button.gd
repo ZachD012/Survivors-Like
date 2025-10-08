@@ -6,8 +6,13 @@ class_name SkillNode
 @onready var label: Label = $MarginContainer/Label
 @onready var line_2d: Line2D = $Line2D
 @onready var skill_tree = get_owner()
+var clone
 		
 func _ready() -> void:
+	if skill_item != null:
+		$Description.text = skill_item.upgrades[max(skill_item.level - 1, 0)].description
+	$DescriptionBox.hide()
+	$Description.hide()
 	#if parent is a SkillNode then we draw a line between them
 	if get_parent() is SkillNode:
 		line_2d.add_point(global_position + size/2)
@@ -20,7 +25,17 @@ func _ready() -> void:
 	for skill in skills:
 		if skill is SkillNode and level == 1:
 			skill.disabled = false
+		elif skill is SkillNode and level < 1:
+			skill.disabled = true
+	clone = self.duplicate()
 
+func reset():
+	if skill_item.starting_weapon:
+		level = 1
+	else:
+		level = 0
+	if skill_item.has_method("reset"):
+		skill_item.reset()
 
 var level :int :
 	set(value):
@@ -48,12 +63,33 @@ func give_item(item):
 #	wont work need to instantiate a slot into weapons and passive item as a child then
 #	assign its item property as a weapon or passive item respectively
 	if item is Weapon:
-		var weapon_slot = preload("res://Util/UI/Scenes/slot.tscn").instantiate()
+		var weapon_slot = preload("res://Util/UI/Scenes/weapon_slot.tscn").instantiate()
 		weapon_slot.item = item
-		skill_tree.weapons.add_child(weapon_slot)
+		if skill_tree.weapon_container != null:
+			skill_tree.weapon_container.add_child(weapon_slot)
+			print("gave weapon item: ", str(item))
 	elif item is PassiveItem:
 		var passive_slot = preload("res://Util/UI/Scenes/passive_slot.tscn").instantiate()
 		passive_slot.item = item
-		skill_tree.passive_items.add_child(passive_slot)
+		if skill_tree.passive_item_container != null:
+			skill_tree.passive_item_container.add_child(passive_slot)
+			print("gave passive item: ", str(item))
+
 func level_up_item(item):
-	skill_item.upgrade_item()
+	item.upgrade_item()
+	print("upgraded item: ", str(item))
+
+
+func _on_mouse_entered() -> void:
+	$DescriptionBox.show()
+	$Description.show()
+	$DescriptionBox.z_index = 1
+	$Description.z_index = 1
+	z_index = 2
+
+func _on_mouse_exited() -> void:
+	$DescriptionBox.hide()
+	$Description.hide()
+	$DescriptionBox.z_index = 0
+	$Description.z_index = 0
+	z_index = 0

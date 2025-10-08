@@ -12,6 +12,7 @@ ignore_texture_size = true
 script = ExtResource("1_x8tl6")
 
 [node name="Item" type="TextureRect" parent="."]
+z_index = 1
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
@@ -41,9 +42,10 @@ text = "Upgrade speed"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 show_behind_parent = true
+y_sort_enabled = true
 custom_minimum_size = Vector2(250, 24)
-layout_mode = 0
-offset_right = 250.0
+layout_mode = 1
+offset_right = 200.0
 offset_bottom = 24.0
 texture = ExtResource("2_n8erv")
 

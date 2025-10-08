@@ -2,18 +2,25 @@ extends CharacterBody2D
 
 signal health_depleted
 
+@onready var weapons : HBoxContainer = %Weapons
+@onready var passive_items : HBoxContainer = %PassiveItems
 var area : float = 0
-var movement_speed = 100
-var health = 50:
+var starting_movement_speed = 100
+var movement_speed = starting_movement_speed
+var starting_health = 50
+var health : float = starting_health:
 	set(value):
 		health = max(value, 0)
 		%HealthBar.value = value
-var max_health : float :
+var starting_max_health = 50
+var max_health : float = starting_max_health:
 	set(value):
 		max_health = value
 		%HealthBar.max_value = value
-var recovery : float = 0.1
-var armor : float = 0
+var starting_recovery : float = 0.1
+var recovery : float = starting_recovery
+var starting_armor : float = 0
+var armor : float = starting_armor
 
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = 150 + area
@@ -73,6 +80,26 @@ func check_XP():
 		experience -= %XP.max_value
 		level += 1
 
+func reset_items():
+	#var item_slots : Array[Node] = item_container.get_children()
+	#for item_slot in item_slots:
+		#item_slot.reset()
+	for weapon_slot in weapons.get_children():
+		weapon_slot.reset()
+	for passive_slot in passive_items.get_children():
+		passive_slot.reset()
+	print("reset all item slots")
+
+func reset_stats():
+	health = starting_health
+	max_health = starting_max_health
+	movement_speed = starting_movement_speed
+	recovery = starting_recovery
+	armor = starting_armor
+
+func reset():
+	reset_items()
+	reset_stats()
 
 func _on_health_depleted() -> void:
 	%GameOver.show()
