@@ -23,6 +23,7 @@ func reset():
 	item.damage = clone.damage
 	item.cooldown = clone.cooldown
 	item.pierce = clone.pierce
+	item.level = clone.level
 	$Cooldown.wait_time = item.cooldown
 	print("reset weapon: ", str(item), " in weapon slot: ", str(self))
 	if not item.starting_weapon:

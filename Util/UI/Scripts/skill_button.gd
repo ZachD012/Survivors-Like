@@ -11,7 +11,10 @@ var weapon_slot
 		
 func _ready() -> void:
 	if skill_item != null:
-		$Description.text = skill_item.upgrades[max(skill_item.level - 1, 0)].description
+		if skill_item is Weapon and skill_item.starting_weapon:
+			$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+		else:
+			$Description.text = "Give Item"
 	$DescriptionBox.hide()
 	$Description.hide()
 	#if parent is a SkillNode then we draw a line between them
@@ -31,12 +34,13 @@ func _ready() -> void:
 	clone = self.duplicate()
 
 func reset():
-	if skill_item.starting_weapon:
-		level = 1
-	else:
-		level = 0
-	if skill_item.has_method("reset"):
-		skill_item.reset()
+	level = clone.level
+	#if skill_item.starting_weapon:
+		#level = 1
+	#else:
+		#level = 0
+	#if skill_item.has_method("reset"):
+		#skill_item.reset()
 
 var level :int :
 	set(value):
@@ -44,12 +48,13 @@ var level :int :
 		if level >= 1:
 			panel.show_behind_parent = true
 			line_2d.default_color = Color(1, 0.498039, 0.313726, 1)
-		label.text = str(level) + "/3"
+		label.text = str(level) + "/4"
 
 func _on_pressed() -> void:
-	level = min(level + 1, 3)
+	level = min(level + 1, 4)
 	if level == 1:
 		give_item(skill_item)
+		
 	elif level > 1:
 		level_up_item(skill_item)
 	
@@ -71,17 +76,27 @@ func give_item(item):
 		weapon_slot.item = item
 		if skill_tree.weapon_container != null:
 			skill_tree.weapon_container.add_child(weapon_slot)
-			print("gave weapon item: ", str(item))
+			print("gave weapon item: ", str(item.title))
 	elif item is PassiveItem:
 		var passive_slot = preload("res://Util/UI/Scenes/passive_slot.tscn").instantiate()
 		passive_slot.item = item
 		if skill_tree.passive_item_container != null:
 			skill_tree.passive_item_container.add_child(passive_slot)
-			print("gave passive item: ", str(item))
+			print("gave passive item: ", str(item.title))
+	skill_item.level = 1
+	$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+
 
 func level_up_item(item):
 	item.upgrade_item()
-	print("upgraded item: ", str(item))
+	if item.level >= 4:
+		$Description.text = "Item is fully upgraded"
+		self.disabled = true
+	else:
+		$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+
+
+	print("upgraded item: ", str(item.title))
 
 
 func _on_mouse_entered() -> void:

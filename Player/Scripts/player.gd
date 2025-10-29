@@ -38,10 +38,14 @@ var level : int = 1:
 		#%Options.show_option()
 		
 		if level >= 3:
-			%XP.max_value = 150
+			%XP.max_value = 50
 		elif level >= 7:
-			%XP.max_value = 300
-
+			%XP.max_value = 150
+func _ready() -> void:
+	print("health: ", str(health))
+	print("armor: ", str(armor))
+	print("recovery: ", str(recovery))
+	
 func _physics_process(_delta):
 	#Checking if there is a nearest enemy then stores its seperation as the distance. Otherwise set the value to default (infinite)
 	if is_instance_valid(nearest_enemy):
@@ -102,6 +106,8 @@ func reset():
 	reset_stats()
 
 func _on_health_depleted() -> void:
+	#On retry pressed in the game over screen, calls player reset() function.
 	%GameOver.show()
+	#Skill tree reset calls the reset function for every skill node in its children.
 	%SkillTree.reset()
 	get_tree().paused = true

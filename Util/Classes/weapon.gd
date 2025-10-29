@@ -41,10 +41,10 @@ func upgrade_item():
 	
 	level += 1
 	
-	print("upgraded weapon from ", str(damage), " to ", str(upgrade.damage))
+	print("upgraded weapon by, ", str(upgrade.damage), "and level: ", level)
 #	right now this is here for the area of effect projectile upgrade for the blast but there is
 #	probably a better way of implementing this.
-	_child_upgrade(upgrade)
+	#_child_upgrade(upgrade)
 
 #why did I feel the need to add this?
 func _child_upgrade(_upgrade):
