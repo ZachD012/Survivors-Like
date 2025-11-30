@@ -5,6 +5,7 @@ class_name SkillNode
 @onready var panel: Panel = $Panel
 @onready var label: Label = $MarginContainer/Label
 @onready var line_2d: Line2D = $Line2D
+@onready var description: Label = $DescriptionBox/Description
 @onready var skill_tree = get_owner()
 var clone
 var weapon_slot
@@ -12,11 +13,11 @@ var weapon_slot
 func _ready() -> void:
 	if skill_item != null:
 		if skill_item is Weapon and skill_item.starting_weapon:
-			$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+			description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
 		else:
-			$Description.text = "Give Item"
+			description.text = "Give Item"
 	$DescriptionBox.hide()
-	$Description.hide()
+	#description.hide()
 	#if parent is a SkillNode then we draw a line between them
 	if get_parent() is SkillNode:
 		line_2d.add_point(global_position + size/2)
@@ -84,16 +85,16 @@ func give_item(item):
 			skill_tree.passive_item_container.add_child(passive_slot)
 			print("gave passive item: ", str(item.title))
 	skill_item.level = 1
-	$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+	description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
 
 
 func level_up_item(item):
 	item.upgrade_item()
 	if item.level >= 4:
-		$Description.text = "Item is fully upgraded"
+		description.text = "Item is fully upgraded"
 		self.disabled = true
 	else:
-		$Description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
+		description.text = skill_item.upgrades[max(skill_item.level -1, 0)].description
 
 
 	print("upgraded item: ", str(item.title))
@@ -101,14 +102,14 @@ func level_up_item(item):
 
 func _on_mouse_entered() -> void:
 	$DescriptionBox.show()
-	$Description.show()
+	#description.show()
 	$DescriptionBox.z_index = 1
-	$Description.z_index = 1
+	#description.z_index = 1
 	z_index = 2
 
 func _on_mouse_exited() -> void:
 	$DescriptionBox.hide()
-	$Description.hide()
+	#description.hide()
 	$DescriptionBox.z_index = 0
-	$Description.z_index = 0
+	#description.z_index = 0
 	z_index = 0

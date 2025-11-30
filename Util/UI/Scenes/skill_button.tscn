@@ -28,13 +28,7 @@ offset_right = 200.0
 offset_bottom = 40.0
 texture = ExtResource("2_8nfdc")
 
-[node name="Line2D" type="Line2D" parent="."]
-top_level = true
-z_index = -1
-width = 3.0
-default_color = Color(0.277528, 0.277528, 0.277528, 1)
-
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="DescriptionBox"]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 8.0
@@ -42,6 +36,12 @@ offset_right = 177.0
 offset_bottom = 31.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Upgrade speed"
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width = 3.0
+default_color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
