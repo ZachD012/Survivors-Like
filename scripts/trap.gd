@@ -4,7 +4,12 @@ extends Sprite2D
 @onready var trap : Sprite2D = self
 var trap_ready : bool = true
 
-
+func timer() -> void:
+	print("start")
+	await get_tree().create_timer(1.0).timeout
+	trap_ready = true
+	print("end")
+	
 
 func _on_trap_trigger_body_entered(body: Node2D) -> void:
 	print("Body entered", str(trap_ready))
@@ -18,7 +23,4 @@ func _on_trap_trigger_body_entered(body: Node2D) -> void:
 	else:
 		return
 	
-	print("start")
-	await get_tree().create_timer(1.0).timeout
-	trap_ready = true
-	print("end")
+	timer()

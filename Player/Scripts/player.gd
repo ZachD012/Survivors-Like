@@ -30,17 +30,19 @@ var experience : int = 0:
 		experience = value
 		%XP.value = value
 var total_experience : int = 0
-var level : int = 1:
+var max_level : int = 19
+var level : int = 18:
 	set(value):
 		level = value
 		%Level.text = "Lvl " + str(value)
-		%SkillTree.open_tree()
+		if level < max_level:
+			%SkillTree.open_tree()
 		#%Options.show_option()
 		
 		if level >= 3:
-			%XP.max_value = 50
-		elif level >= 7:
 			%XP.max_value = 150
+		elif level >= 7:
+			%XP.max_value = 300
 func _ready() -> void:
 	print("health: ", str(health))
 	print("armor: ", str(armor))

@@ -2,6 +2,7 @@ extends Projectile
 var pierce_count: int = 0
 
 func _ready() -> void:
+	speed = 500
 	damage = 10
 	pierce = 1
 

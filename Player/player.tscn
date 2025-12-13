@@ -144,7 +144,7 @@ offset_top = -40.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
-max_value = 10.0
+max_value = 75.0
 texture_under = ExtResource("5_fjrip")
 texture_progress = ExtResource("6_smehm")
 
